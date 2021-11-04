@@ -7,3 +7,11 @@
     --tertiary-btn-color: #9f09ac;
     --primary-font-color: white;
 }
+
+.text-center {
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}

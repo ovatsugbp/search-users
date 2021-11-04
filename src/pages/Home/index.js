@@ -8,7 +8,7 @@ import Input from "../../components/Input";
 import "./style.css";
 
 function Home() {
-    const { users } = useUserData();
+    const { users, setUsers } = useUserData();
 
     return (
         <main className="home">
@@ -18,6 +18,7 @@ function Home() {
                     <Input
                         type="text"
                         placeholder="Digite o nome de usuário que você deseja buscar"
+                        changeInput={setUsers}
                     />
                     <span className="material-icons home__search-icon">
                         search

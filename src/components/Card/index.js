@@ -14,6 +14,8 @@ function Card({ user }) {
                                 src={user.avatar_url}
                                 title={user.name}
                                 alt={user.name}
+                                width="100"
+                                height="100"
                             />
                         </div>
                     </div>

@@ -8,13 +8,13 @@ export default function UserProvider({ children }) {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await api.get("/users/ovatsugbp");
+            const response = await api.get(`/users/${users}`);
             setUsers(response.data);
         }
-        fetchData();
-    }, []);
+        // fetchData();
+    }, [users]);
     return (
-        <UserContext.Provider value={{ users }}>
+        <UserContext.Provider value={{ users, setUsers }}>
             {children}
         </UserContext.Provider>
     );
@@ -22,6 +22,6 @@ export default function UserProvider({ children }) {
 
 export function useUserData() {
     const context = useContext(UserContext);
-    const { users } = context;
-    return { users };
+    const { users, setUsers } = context;
+    return { users, setUsers };
 }
