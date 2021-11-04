@@ -4,12 +4,12 @@ import api from "../services/api";
 const UserContext = createContext();
 
 export default function UserProvider({ children }) {
-    const [users] = useState([]);
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
-            const response = await api.get("/users/gustgoulart");
-            console.log(response);
+            const response = await api.get("/users/ovatsugbp");
+            setUsers(response.data);
         }
         fetchData();
     }, []);

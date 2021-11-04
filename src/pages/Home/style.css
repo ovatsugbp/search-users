@@ -9,7 +9,7 @@
 }
 
 .home__search-container {
-    width: 50%;
+    flex: 0.5;
     height: 50%;
 
     background-color: var(--tertiary-bg-color);
@@ -51,4 +51,9 @@
     cursor: pointer;
     right: 10px;
     top: 7px;
+}
+
+.home__user-container {
+    flex: 0.5;
+    color: var(--primary-font-color);
 }

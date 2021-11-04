@@ -1,8 +1,15 @@
 import React from "react";
+
+import { useUserData } from "../../context/userData";
+
+import Card from "../../components/Card";
 import Input from "../../components/Input";
+
 import "./style.css";
 
 function Home() {
+    const { users } = useUserData();
+
     return (
         <main className="home">
             <section className="home__search-container">
@@ -16,6 +23,9 @@ function Home() {
                         search
                     </span>
                 </div>
+            </section>
+            <section className="home__user-container">
+                <Card user={users} />
             </section>
         </main>
     );

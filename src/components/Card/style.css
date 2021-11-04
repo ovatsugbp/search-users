@@ -1,0 +1,95 @@
+.card {
+    width: 60%;
+    margin: auto;
+
+    background-color: var(--tertiary-bg-color);
+    padding: 40px;
+    box-shadow: 11px 14px 5px 0px rgba(35, 36, 39, 0.81);
+}
+.card__top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card__photo-content {
+    width: 100px;
+    height: 100%;
+    border: 4px solid var(--tertiary-btn-color);
+    border-radius: 50%;
+}
+
+.card__photo-bkg {
+    width: 100%;
+    height: 0;
+
+    overflow: hidden;
+    padding-top: 100%;
+    position: relative;
+    border-radius: 50%;
+}
+
+.card__photo {
+    position: absolute;
+
+    height: 100%;
+    width: 100%;
+
+    top: 0;
+    -o-object-fit: contain;
+    object-fit: contain;
+}
+
+.card__user-name {
+    margin-top: 20px;
+    font-size: 24px;
+    cursor: default;
+}
+
+.card__division {
+    width: 45%;
+    height: 2px;
+    margin: 30px auto 20px;
+    background-color: var(--tertiary-btn-color);
+    border: 0 none;
+}
+
+.card__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    margin: 30px auto 10px;
+}
+.card__button svg {
+    height: 55px;
+    width: 150px;
+    fill: none;
+    stroke-width: 5;
+}
+.card__button span {
+    position: absolute;
+    margin: auto 0;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--primary-font-color);
+}
+.o1 {
+    stroke: rgba(#8826d1, 0.7);
+    fill: var(--secondary-bg-color);
+    transition: all 1s ease-in-out;
+}
+.o2 {
+    stroke: var(--tertiary-btn-color);
+    stroke-dasharray: 20 420;
+    stroke-dashoffset: 20;
+    transition: all 1s ease-in-out;
+}
+.card__button:hover .o1 {
+    fill: rgba(#8826d1, 0.3);
+}
+.card__button:hover .o2 {
+    stroke-dashoffset: -420;
+}
