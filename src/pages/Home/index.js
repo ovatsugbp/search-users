@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { useUserData } from "../../context/userData";
 
+import github from "../../assets/img/github-logo.png";
 import Card from "../../components/Card";
 import Input from "../../components/Input";
 
@@ -11,6 +12,7 @@ function Home() {
     const { users, setUsers } = useUserData();
 
     const [inputValue, setInputValue] = useState("");
+    const [isCardShowing, setIsCardShowing] = useState(false);
 
     const getInputValue = (value) => {
         setInputValue(value);
@@ -18,6 +20,7 @@ function Home() {
 
     const searchUser = () => {
         setUsers(inputValue);
+        setIsCardShowing(true);
     };
 
     return (
@@ -41,7 +44,16 @@ function Home() {
                 </div>
             </section>
             <section className="home__container">
-                <Card user={users} />
+                {isCardShowing ? (
+                    <Card user={users} />
+                ) : (
+                    <img
+                        className="home__git-logo"
+                        src={github}
+                        alt="github logo"
+                        width="500"
+                    />
+                )}
             </section>
         </main>
     );

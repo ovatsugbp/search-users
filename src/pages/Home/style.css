@@ -60,3 +60,6 @@
     flex: 0.5;
     color: var(--primary-font-color);
 }
+.home__git-logo {
+    width: 500px;
+}
