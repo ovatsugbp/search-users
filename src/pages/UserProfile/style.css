@@ -11,7 +11,7 @@
     width: 60%;
     color: var(--primary-font-color);
     background-color: var(--tertiary-bg-color);
-    padding: 40px;
+    padding: 60px 10px 60px 40px;
     border: 1px solid var(--secondary-btn-color);
 
     -o-border-image: linear-gradient(
@@ -61,7 +61,35 @@
 
 .user-profile__right {
     margin-left: 100px;
+    background-color: var(--secondary-bg-color);
+    width: 45%;
+    height: 300px;
+    color: white;
+    margin: auto;
+
+    overflow: overlay;
 }
-.user-profile__right p {
-    margin-bottom: 15px;
+.user-profile__text {
+    margin-top: 15px;
+}
+
+.user-profile__repositories {
+    overflow: hidden;
+}
+
+.user-profile__repo-item {
+    padding: 20px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-profile__repo-item:hover {
+    background-color: var(--tertiary-btn-color);
+}
+
+.user-profile__link {
+    color: var(--primary-font-color);
+    font-weight: bold;
+    text-decoration: none;
 }

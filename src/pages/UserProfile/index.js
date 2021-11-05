@@ -1,44 +1,12 @@
 import React from "react";
+
+import { useUserData } from "../../context/userData";
+
 import "./style.css";
 
 function UserProfile() {
-    const user = {
-        avatar_url: "https://avatars.githubusercontent.com/u/57936?v=4",
-        bio: null,
-        blog: "",
-        company: null,
-        created_at: "2009-02-25T19:01:55Z",
-        email: null,
-        events_url: "https://api.github.com/users/example/events{/privacy}",
-        followers: 21,
-        followers_url: "https://api.github.com/users/example/followers",
-        following: 0,
-        following_url:
-            "https://api.github.com/users/example/following{/other_user}",
-        gists_url: "https://api.github.com/users/example/gists{/gist_id}",
-        gravatar_id: "",
-        hireable: null,
-        html_url: "https://github.com/example",
-        id: 57936,
-        location: null,
-        login: "example",
-        name: "Example",
-        node_id: "MDQ6VXNlcjU3OTM2",
-        organizations_url: "https://api.github.com/users/example/orgs",
-        public_gists: 0,
-        public_repos: 1,
-        received_events_url:
-            "https://api.github.com/users/example/received_events",
-        repos_url: "https://api.github.com/users/example/repos",
-        site_admin: false,
-        starred_url:
-            "https://api.github.com/users/example/starred{/owner}{/repo}",
-        subscriptions_url: "https://api.github.com/users/example/subscriptions",
-        twitter_username: null,
-        type: "User",
-        updated_at: "2019-08-22T16:25:57Z",
-        url: "https://api.github.com/users/example",
-    };
+    const { users, repos } = useUserData();
+
     return (
         <main className="user-profile">
             <section className="user-profile__container">
@@ -47,18 +15,42 @@ function UserProfile() {
                         <div className="user-profile__photo-bkg">
                             <img
                                 className="user-profile__photo"
-                                src={user.avatar_url}
-                                title={user.name}
-                                alt={user.name}
+                                src={users.avatar_url}
+                                title={users.name}
+                                alt={users.name}
                                 width="400"
                                 height="400"
                             />
                         </div>
                     </div>
+                    <p className="text-center bold user-profile__text">
+                        {users.name}
+                    </p>
+                    <p className="text-center user-profile__text">
+                        Repositórios públicos: {users.public_repos}
+                    </p>
                 </div>
                 <div className="user-profile__right">
-                    <p className="text-center bold">{user.name}</p>
-                    <p>Repositórios públicos: {user.public_repos}</p>
+                    <p className="text-center mb-20 user-profile__text">
+                        Lista de repositórios
+                    </p>
+                    <div className="user-profile__repositories">
+                        <ul className="user-profile__repo-list">
+                            {repos.map((repo) => (
+                                <li className="user-profile__repo-item">
+                                    <a
+                                        className="user-profile__link"
+                                        href={repo.html_url}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        {repo.name}
+                                    </a>
+                                    <span>{repo.description}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             </section>
         </main>
