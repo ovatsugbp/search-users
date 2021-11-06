@@ -9,17 +9,18 @@ import Input from "../../components/Input";
 import "./style.css";
 
 function Home() {
-    const { users, setUsers } = useUserData();
+    const { users, setInputUser } = useUserData();
 
     const [inputValue, setInputValue] = useState("");
     const [isCardShowing, setIsCardShowing] = useState(false);
 
-    const getInputValue = (value) => {
+    const getInputValue = (value, key) => {
         setInputValue(value);
+        if (key === "Enter") searchUser();
     };
 
     const searchUser = () => {
-        setUsers(inputValue);
+        setInputUser(inputValue);
         setIsCardShowing(true);
     };
 
@@ -32,7 +33,9 @@ function Home() {
                         <Input
                             type="text"
                             placeholder="Digite o nome de usuário que você deseja buscar"
-                            changeInput={(value) => getInputValue(value)}
+                            changeInput={(value, key) =>
+                                getInputValue(value, key)
+                            }
                         />
                         <span
                             className="material-icons home__search-icon"

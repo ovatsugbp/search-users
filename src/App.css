@@ -19,3 +19,9 @@
 .mb-20 {
     margin-bottom: 20px;
 }
+
+.align-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

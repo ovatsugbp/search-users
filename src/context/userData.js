@@ -4,21 +4,39 @@ import api from "../services/api";
 const UserContext = createContext();
 
 export default function UserProvider({ children }) {
+    const [inputUser, setInputUser] = useState([]);
     const [users, setUsers] = useState([]);
     const [repos, setRepos] = useState([]);
+    const [hasError, setHasError] = useState(false);
 
     useEffect(() => {
         async function fetchData() {
-            const responseUserData = await api.get(`/users/${users}`);
-            const responseUserRepos = await api.get(`/users/${users}/repos`);
+            try {
+                const responseUserData = await api.get(`/users/${inputUser}`);
+                const responseUserRepos = await api.get(
+                    `/users/${inputUser}/repos`
+                );
 
-            setUsers(responseUserData.data);
-            setRepos(responseUserRepos.data);
+                setHasError(false);
+                setUsers(responseUserData.data);
+                setRepos(responseUserRepos.data);
+            } catch (error) {
+                setHasError(true);
+            }
         }
         fetchData();
-    }, [users]);
+    }, [inputUser]);
     return (
-        <UserContext.Provider value={{ users, setUsers, repos }}>
+        <UserContext.Provider
+            value={{
+                users,
+                setUsers,
+                repos,
+                inputUser,
+                setInputUser,
+                hasError,
+            }}
+        >
             {children}
         </UserContext.Provider>
     );
@@ -26,6 +44,7 @@ export default function UserProvider({ children }) {
 
 export function useUserData() {
     const context = useContext(UserContext);
-    const { users, setUsers, repos } = context;
-    return { users, setUsers, repos };
+    const { users, setUsers, repos, inputUser, setInputUser, hasError } =
+        context;
+    return { users, setUsers, repos, inputUser, setInputUser, hasError };
 }

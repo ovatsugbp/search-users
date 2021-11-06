@@ -10,7 +10,7 @@ function Header() {
             <nav>
                 <ul className="header__list">
                     <li className="header__item">
-                        <Link to="/">Voltar</Link>
+                        <Link to="/">Home</Link>
                     </li>
                     <li className="header__item">Bem-vindo (a)</li>
                 </ul>

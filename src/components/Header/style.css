@@ -4,6 +4,7 @@
     width: 100vw;
     height: 60px;
     padding: 20px 50px;
+    background-color: var(--tertiary-bg-color);
 }
 .header__list {
     color: var(--primary-font-color);
@@ -12,8 +13,35 @@
 
     list-style: none;
 }
+.header__item {
+    font-size: 20px;
+}
 
 .header__item a {
     text-decoration: none;
     color: var(--primary-font-color);
+    padding-bottom: 3px;
+}
+
+.header__item a:hover {
+    -webkit-animation: borderanim 2s linear forwards;
+    animation: borderanim 2s linear forwards;
+}
+
+@-webkit-keyframes borderanim {
+    from {
+        border-bottom: 2px solid transparent;
+    }
+    to {
+        border-bottom: 2px solid #8826d1;
+    }
+}
+
+@keyframes borderanim {
+    from {
+        border-bottom: 2px solid transparent;
+    }
+    to {
+        border-bottom: 2px solid #8826d1;
+    }
 }

@@ -9,7 +9,7 @@ function Input({ type, placeholder, changeInput }) {
                 className="input"
                 type={type}
                 placeholder={placeholder}
-                onChange={(e) => changeInput(e.target.value)}
+                onKeyUp={(e) => changeInput(e.target.value, e.key)}
             />
         </>
     );
