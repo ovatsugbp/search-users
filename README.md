@@ -17,6 +17,14 @@ First, you need to open your terminal and type:
 and then is just type:
 ### `npm start`
 
+<p align="center">
+  <a href="" rel="noopener">
+  <img width=600px height=300px src="/public/assets/Screenshot_1.jpg" alt="project ilustration"></a>
+</p>
+<p align="center">
+  <a href="" rel="noopener">
+  <img width=600px height=300px src="/public/assets/Screenshot_2.jpg" alt="project ilustration"></a>
+</p>
 
 ### Author
 ---
